@@ -31,8 +31,7 @@ public class UserMapper {
                 user.getId(),
                 user.getUsername(),
                 user.getEmail(),
-                user.getName(),
-                user.getSurname(),
+                user.getFullName(),
                 user.getRoles()
                         .stream()
                         .map(RoleEntity::getAuthority)

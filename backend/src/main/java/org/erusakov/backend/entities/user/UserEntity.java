@@ -33,6 +33,10 @@ public class UserEntity extends BaseEntity<Long> {
     @Column(name = "password", nullable = false)
     private String password;
 
+    public String getFullName() {
+        return name + (surname != null ? " " + surname : "");
+    }
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "m2m_users_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
