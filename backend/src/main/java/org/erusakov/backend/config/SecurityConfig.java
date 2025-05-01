@@ -51,7 +51,7 @@ public class SecurityConfig {
                         authorize.requestMatchers(SecurityUtils.AUTH_PATH).permitAll()
                                 .requestMatchers(SecurityUtils.REFRESH_PATH).permitAll()
                                 .requestMatchers("/error").permitAll()
-                                .requestMatchers("/api/v1/**").authenticated()/*.permitAll()*/
+                                .requestMatchers("/api/v1/**")/*.authenticated()*/.permitAll()
                                 .anyRequest().authenticated())
                 .logout(logout ->
                         logout.logoutUrl(SecurityUtils.LOGOUT_PATH)

@@ -44,7 +44,7 @@ public class UserEntity extends BaseEntity<Long> {
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "[username= " + username + ", email=" + email + ", name=" + name +
+        return this.getClass().getSimpleName() + "[name= " + username + ", email=" + email + ", name=" + name +
                 ", surname=" + surname + "]";
     }
 

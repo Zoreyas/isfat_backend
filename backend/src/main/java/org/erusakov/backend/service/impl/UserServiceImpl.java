@@ -18,8 +18,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -58,17 +56,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity findByLoginOrThrow(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("No user found with username " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("No user found with name " + username));
     }
-
-    @Override
-    public List<UserResponse> findUsersByOrganizationId(Long organizationId) {
-        return userRepository.findByOrganization_Id(organizationId)
-                .stream()
-                .map(userMapper::toResponse)
-                .toList();
-    }
-
 
     @Override
     public void update(Long id, UpdateUserRequest updateUser) {
