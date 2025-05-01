@@ -1,0 +1,23 @@
+meta {
+  name: updateRepairs
+  type: http
+  seq: 10
+}
+
+patch {
+  url: {{path}}/cars/repairs/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+body:json {
+  {
+    "mechanic": "test",
+    "repairDetails": "test",
+    "repairedAt": "2025-05-01T03:44:21"
+  }
+}

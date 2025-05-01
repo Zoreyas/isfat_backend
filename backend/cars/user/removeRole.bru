@@ -1,0 +1,20 @@
+meta {
+  name: removeRole
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{path}}/users/{{id}}/roles/{{roleId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  1
+}
+
+vars:pre-request {
+  id: 9
+  roleId: 1
+}

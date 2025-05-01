@@ -1,0 +1,15 @@
+meta {
+  name: findAll
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{path}}/users?size=20
+  body: none
+  auth: none
+}
+
+params:query {
+  size: 20
+}

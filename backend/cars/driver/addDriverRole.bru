@@ -1,0 +1,23 @@
+meta {
+  name: addDriverRole
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{path}}/drivers
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVkIiwiaWF0IjoxNzQzMzQxNzUwLCJleHAiOjE4OTg4NjE3NTB9.OcGvvSRcr3AlzEeTA9rBsv12N2cRq_igx2LpdM6hy2U
+}
+
+body:json {
+  {
+    "userId" : "2",
+    "licenseNumber": "123123123123",
+    "phone" : "89161234567"
+  }
+}

@@ -1,0 +1,25 @@
+meta {
+  name: updateLogin
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{path}}/users/{{id}}/login
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVkMSIsImlhdCI6MTc0NDIyMzk1OCwiZXhwIjoxODk5NzQzOTU4fQ.WNlrBKdqYE2xL1uUFYlsgvuJrgOlDURt25Na4kmuIDg
+}
+
+body:json {
+  {
+    "username": "secured"
+  }
+}
+
+vars:pre-request {
+  id: 13
+}

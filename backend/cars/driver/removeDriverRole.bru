@@ -1,0 +1,19 @@
+meta {
+  name: removeDriverRole
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{path}}/drivers/{{userId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVkIiwiaWF0IjoxNzQzMzQxNzUwLCJleHAiOjE4OTg4NjE3NTB9.OcGvvSRcr3AlzEeTA9rBsv12N2cRq_igx2LpdM6hy2U
+}
+
+vars:pre-request {
+  userId: 17
+}

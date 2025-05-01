@@ -1,0 +1,15 @@
+meta {
+  name: delete
+  type: http
+  seq: 9
+}
+
+delete {
+  url: {{path}}/cars/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 3
+}

@@ -1,0 +1,21 @@
+meta {
+  name: updateNotes
+  type: http
+  seq: 11
+}
+
+patch {
+  url: {{path}}/cars/notes/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+body:json {
+  {
+    "note": "test note12341241"
+  }
+}

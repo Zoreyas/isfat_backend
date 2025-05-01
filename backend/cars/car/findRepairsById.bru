@@ -1,0 +1,15 @@
+meta {
+  name: findRepairsById
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{path}}/cars/repairs/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}

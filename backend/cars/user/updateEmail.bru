@@ -1,0 +1,25 @@
+meta {
+  name: updateEmail
+  type: http
+  seq: 9
+}
+
+patch {
+  url: {{path}}/users/{{id}}/email
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdfdGVzdCIsImlhdCI6MTc0MzA4MzQzMSwiZXhwIjoxODk4NjAzNDMxfQ.6ygiLVNYO9F0qRB0Vr_cZ5Uzmx37DXuGsycyO37unSQ
+}
+
+body:json {
+  {
+    "email": "new_test@mail.com"
+  }
+}
+
+vars:pre-request {
+  id: 17
+}

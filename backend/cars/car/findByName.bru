@@ -1,0 +1,15 @@
+meta {
+  name: findByName
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{path}}/cars/name/:name
+  body: none
+  auth: inherit
+}
+
+params:path {
+  name: test_car
+}

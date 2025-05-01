@@ -1,0 +1,15 @@
+meta {
+  name: findDriversById
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{path}}/cars/drivers/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}

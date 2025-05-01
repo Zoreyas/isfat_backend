@@ -1,0 +1,22 @@
+meta {
+  name: create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{path}}/cars
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "test_car",
+    "integrity": 10,
+    "maxFuelTank": 10,
+    "currentFuel": 10,
+    "maxCapacity": 10,
+    "currentLoad": 10
+  }
+}

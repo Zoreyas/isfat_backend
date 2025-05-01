@@ -1,0 +1,20 @@
+meta {
+  name: addRole
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{path}}/users/{{id}}/roles/{{roleId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  1
+}
+
+vars:pre-request {
+  id: 9
+  roleId: 1
+}

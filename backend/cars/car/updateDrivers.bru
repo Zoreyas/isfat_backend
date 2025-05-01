@@ -1,0 +1,22 @@
+meta {
+  name: updateDrivers
+  type: http
+  seq: 12
+}
+
+patch {
+  url: {{path}}/cars/drivers/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+body:json {
+  {
+    "driverId": 2,
+    "endedAt": "2025-05-01T03:44:21"
+  }
+}

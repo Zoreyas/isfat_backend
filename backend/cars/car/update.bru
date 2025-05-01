@@ -1,0 +1,26 @@
+meta {
+  name: update
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{path}}/cars/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+body:json {
+  {
+    "name": "test_car_UPDATED",
+    "integrity": 1000,
+    "maxFuelTank": 1000,
+    "currentFuel": 1000,
+    "maxCapacity": 1000,
+    "currentLoad": 1000
+  }
+}
