@@ -42,6 +42,14 @@ public class UserEntity extends BaseEntity<Long> {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<RoleEntity> roles = new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "notifications", joinColumns = @JoinColumn(name = "user_id"))
+    private List<NotificationEntity> notifications = new ArrayList<>();
+
+    public UserEntity(Long id) {
+        super(id);
+    }
+
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "[name= " + username + ", email=" + email + ", name=" + name +
