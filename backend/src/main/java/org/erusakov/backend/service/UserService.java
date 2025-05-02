@@ -17,6 +17,9 @@ public interface UserService {
     UserResponse findById(Long id);
 
     @Transactional
+    UserResponse findByLogin(String username) throws UsernameNotFoundException;
+
+    @Transactional
     Page<UserResponse> findAll(Pageable pageable);
 
     @Transactional

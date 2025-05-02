@@ -35,6 +35,11 @@ public class UserController {
         return userService.findById(id);
     }
 
+    @GetMapping("/login/{login}")
+    public UserResponse findById(@PathVariable String login) {
+        return userService.findByLogin(login);
+    }
+
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id, @RequestBody @Valid UpdateUserRequest updateUser) {

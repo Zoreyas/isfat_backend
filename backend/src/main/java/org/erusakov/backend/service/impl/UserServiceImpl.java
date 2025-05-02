@@ -47,6 +47,14 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
+    public UserResponse findByLogin(String username) throws UsernameNotFoundException {
+        return userMapper.toResponse(userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("No user found with name " + username)));
+    }
+
+
+    @Transactional
+    @Override
     public Page<UserResponse> findAll(Pageable pageable) {
         Page<UserEntity> userEntities = userRepository.findAll(pageable);
         return userEntities.map(userMapper::toResponse);
