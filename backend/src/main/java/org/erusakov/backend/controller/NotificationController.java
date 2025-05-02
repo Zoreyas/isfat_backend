@@ -16,14 +16,11 @@ import java.util.List;
 public class NotificationController {
     private final NotificationService notificationService;
 
-    // Получение всех уведомлений пользователя
-    @GetMapping("/user/{userId}")
+    @GetMapping("/{userId}")
     public ResponseEntity<List<NotificationResponse>> getUserNotifications(
             @PathVariable Long userId,
-            @RequestParam(required = false) Boolean unreadOnly) {
-        return ResponseEntity.ok(
-                notificationService.getUserNotifications(userId, unreadOnly)
-        );
+            @RequestParam Boolean unreadOnly) {
+        return ResponseEntity.ok(notificationService.getUserNotifications(userId, unreadOnly));
     }
 
     // Создание уведомления

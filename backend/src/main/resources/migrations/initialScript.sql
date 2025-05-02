@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS notifications
     user_id    bigint    NOT NULL REFERENCES users (id) ON DELETE CASCADE,
     message    text      NOT NULL,
     is_read    boolean   NOT NULL DEFAULT false,
-    created_at timestamp NOT NULL DEFAULT now()
+    created_at timestamp NOT NULL DEFAULT now(),
+    updated_at timestamp NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS cars
