@@ -3,6 +3,7 @@ package org.erusakov.backend.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.erusakov.backend.controller.request.user.*;
+import org.erusakov.backend.controller.response.IdResponse;
 import org.erusakov.backend.controller.response.user.UserResponse;
 import org.erusakov.backend.service.UserService;
 import org.springframework.data.domain.Page;
@@ -21,8 +22,8 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Long create(@RequestBody @Valid CreateUserRequest createUserRequest) {
-        return userService.create(createUserRequest);
+    public IdResponse create(@RequestBody @Valid CreateUserRequest createUserRequest) {
+        return new IdResponse(userService.create(createUserRequest));
     }
 
     @GetMapping

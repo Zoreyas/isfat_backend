@@ -2,6 +2,7 @@ package org.erusakov.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.erusakov.backend.controller.request.car.*;
+import org.erusakov.backend.controller.response.IdResponse;
 import org.erusakov.backend.controller.response.car.*;
 import org.erusakov.backend.service.CarService;
 import org.springframework.http.HttpStatus;
@@ -48,8 +49,8 @@ public class CarController {
     }
 
     @PostMapping
-    public ResponseEntity<Long> createCar(@RequestBody CreateCarRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(carService.create(request));
+    public ResponseEntity<IdResponse> createCar(@RequestBody CreateCarRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(new IdResponse(carService.create(request)));
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -2,6 +2,7 @@ package org.erusakov.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.erusakov.backend.controller.request.user.CreateNotificationRequest;
+import org.erusakov.backend.controller.response.IdResponse;
 import org.erusakov.backend.controller.response.user.NotificationResponse;
 import org.erusakov.backend.service.NotificationService;
 import org.springframework.http.HttpStatus;
@@ -23,12 +24,11 @@ public class NotificationController {
         return ResponseEntity.ok(notificationService.getUserNotifications(userId, unreadOnly));
     }
 
-    // Создание уведомления
     @PostMapping
-    public ResponseEntity<Long> createNotification(
+    public ResponseEntity<IdResponse> createNotification(
             @RequestBody CreateNotificationRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(notificationService.createNotification(request));
+                .body(new IdResponse(notificationService.createNotification(request)));
     }
 
     // Пометить как прочитанное

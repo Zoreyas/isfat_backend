@@ -3,6 +3,7 @@ package org.erusakov.backend.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.erusakov.backend.controller.request.user.CreateDriverRequest;
+import org.erusakov.backend.controller.response.IdResponse;
 import org.erusakov.backend.service.DriverService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,9 @@ public class DriverController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Long createDriver(
+    public IdResponse createDriver(
             @RequestBody @Valid CreateDriverRequest request) {
-        return driverService.createDriver(request);
+        return new IdResponse(driverService.createDriver(request));
     }
 
     @DeleteMapping("/{userId}")
