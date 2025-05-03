@@ -7,13 +7,9 @@ meta {
 get {
   url: {{path}}/users/login/:login
   body: none
-  auth: bearer
+  auth: none
 }
 
 params:path {
   login: test_user
-}
-
-auth:bearer {
-  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVkIiwiaWF0IjoxNzQ1NzUxNDA1LCJleHAiOjE5MDEyNzE0MDV9.K3V4L48hW3Td3ajjoFbPrdqtO5E5f_LejnA57xoSixs
 }

@@ -7,20 +7,16 @@ meta {
 post {
   url: {{path}}/users
   body: json
-  auth: bearer
-}
-
-auth:bearer {
-  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVkIiwiaWF0IjoxNzQzMDgyOTgxLCJleHAiOjE4OTg2MDI5ODF9.MkHcjn5AQ8SJXUqzpvYuEvZNQvT777iJhLXEqNLCwnA
+  auth: none
 }
 
 body:json {
   {
-    "username": "test_user",
-    "email": "test@mail.com",
-    "name": "test",
-    "surname": "user",
-    "password": "1234",
+    "username": "test_user1",
+    "email": "test@mail.com1",
+    "name": "test1",
+    "surname": "user1",
+    "password": "12341234",
     "roles": []
   }
 }

@@ -5,7 +5,15 @@ meta {
 }
 
 get {
-  url: {{path}}/users/notifications
+  url: {{path}}/users/notifications/:user?unreadOnly=true
   body: none
   auth: inherit
+}
+
+params:query {
+  unreadOnly: true
+}
+
+params:path {
+  user: 2
 }
