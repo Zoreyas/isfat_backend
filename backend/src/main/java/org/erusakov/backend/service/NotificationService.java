@@ -6,7 +6,7 @@ import org.erusakov.backend.controller.response.user.NotificationResponse;
 import java.util.List;
 
 public interface NotificationService {
-    List<NotificationResponse> getUserNotifications(Long userId, boolean unreadOnly);
+    List<NotificationResponse> getUserNotifications(Long userId, Boolean isRead);
 
     Long createNotification(Long userId, CreateNotificationRequest request);
 

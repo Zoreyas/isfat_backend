@@ -19,9 +19,15 @@ public class NotificationServiceImpl implements NotificationService {
     private final NotificationMapper notificationMapper;
 
     @Override
-    public List<NotificationResponse> getUserNotifications(Long userId, boolean unreadOnly) {
-        return notificationRepository.findAllByUser_IdAndIsRead(userId, unreadOnly).stream()
-                .map(notificationMapper::toResponse).toList();
+    public List<NotificationResponse> getUserNotifications(Long userId, Boolean isRead) {
+        if (isRead != null) {
+            return notificationRepository.findAllByUser_IdAndIsRead(userId, isRead).stream()
+                    .map(notificationMapper::toResponse).toList();
+        } else {
+            return notificationRepository.findAllByUser_Id(userId).stream()
+                    .map(notificationMapper::toResponse).toList();
+        }
+
     }
 
     @Override

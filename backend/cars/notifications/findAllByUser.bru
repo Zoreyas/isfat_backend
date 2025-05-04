@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{path}}/users/notifications/:user?unreadOnly=true
+  url: {{path}}/users/notifications/:user?unreadOnly=false
   body: none
   auth: inherit
 }
 
 params:query {
-  unreadOnly: true
+  unreadOnly: false
 }
 
 params:path {
