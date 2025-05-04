@@ -50,6 +50,15 @@ public class UserEntity extends BaseEntity<Long> {
         super(id);
     }
 
+    public boolean hasRole(String role) {
+        for (RoleEntity roleEntity : roles) {
+            if(roleEntity.getAuthority().equals(role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "[name= " + username + ", email=" + email + ", name=" + name +

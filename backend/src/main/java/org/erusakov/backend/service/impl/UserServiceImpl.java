@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     public void updateEmail(Long id, UpdateUserEmailRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
-        if (!user.getUsername().equals(login)) {
+        if (!user.getUsername().equals(login) || user.hasRole("ADMIN")) {
             throw new AccessDeniedException("You can only change your own email");
         }
 
@@ -90,7 +90,7 @@ public class UserServiceImpl implements UserService {
     public void updatePassword(Long id, UpdateUserPasswordRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
-        if (!user.getUsername().equals(login)) {
+        if (!user.getUsername().equals(login) || user.hasRole("ADMIN")){
             throw new AccessDeniedException("You can only change your own email");
         }
         if (passwordEncoder.matches(request.password(), user.getPassword())) {
@@ -105,7 +105,7 @@ public class UserServiceImpl implements UserService {
     public void updateLogin(Long id, UpdateUserLoginRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
-        if (!user.getUsername().equals(login)) {
+        if (!user.getUsername().equals(login) || user.hasRole("ADMIN")) {
             throw new AccessDeniedException("You can only change your own login");
         }
 

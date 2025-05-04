@@ -5,13 +5,17 @@ meta {
 }
 
 patch {
-  url: {{path}}/users/{{id}}/login
+  url: {{path}}/users/:id/login
   body: json
   auth: bearer
 }
 
+params:path {
+  id: 2
+}
+
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVkMSIsImlhdCI6MTc0NDIyMzk1OCwiZXhwIjoxODk5NzQzOTU4fQ.WNlrBKdqYE2xL1uUFYlsgvuJrgOlDURt25Na4kmuIDg
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJpYXQiOjE3NDYzNTQwNTIsImV4cCI6MTkwMTg3NDA1Mn0.bEd_9uhfKI6MilD-mC1uotcop75_F6D_ZTtr-PgpmCs
 }
 
 body:json {
