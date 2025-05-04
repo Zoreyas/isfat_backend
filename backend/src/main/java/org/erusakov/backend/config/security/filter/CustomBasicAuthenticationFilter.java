@@ -39,7 +39,6 @@ public class CustomBasicAuthenticationFilter extends BasicAuthenticationFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         if (requestMatcher.matches(request)) {
-            System.out.println("кто-то логинится");
             super.doFilterInternal(request, response, filterChain);
         } else {
             filterChain.doFilter(request, response);
