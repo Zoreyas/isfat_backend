@@ -11,19 +11,15 @@ patch {
 }
 
 params:path {
-  id: 2
+  id: 3
 }
 
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJpYXQiOjE3NDYzNTQwNTIsImV4cCI6MTkwMTg3NDA1Mn0.bEd_9uhfKI6MilD-mC1uotcop75_F6D_ZTtr-PgpmCs
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0X3VzZXIxIiwiaWF0IjoxNzQ2MzgzMTk3LCJleHAiOjE5MDE5MDMxOTd9.owkGRy3ocDckD9knSL0Xkgt-zGn9fhwDfGV7aiXmUeU
 }
 
 body:json {
   {
-    "username": "secured"
+    "username": "test_user1"
   }
-}
-
-vars:pre-request {
-  id: 13
 }
