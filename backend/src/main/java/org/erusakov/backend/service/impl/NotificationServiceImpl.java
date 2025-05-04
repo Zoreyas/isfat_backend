@@ -25,8 +25,8 @@ public class NotificationServiceImpl implements NotificationService {
     }
 
     @Override
-    public Long createNotification(CreateNotificationRequest request) {
-        return notificationRepository.save(notificationMapper.toEntity(request)).getId();
+    public Long createNotification(Long userId, CreateNotificationRequest request) {
+        return notificationRepository.save(notificationMapper.toEntity(userId, request)).getId();
     }
 
     @Override

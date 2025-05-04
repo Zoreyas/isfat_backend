@@ -1,0 +1,21 @@
+meta {
+  name: create
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{path}}/users/notifications/:user
+  body: json
+  auth: inherit
+}
+
+params:path {
+  user: 2
+}
+
+body:json {
+  {
+    "message" : "абщхда"
+  }
+}

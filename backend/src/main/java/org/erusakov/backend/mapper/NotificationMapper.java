@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class NotificationMapper {
 
-    public NotificationEntity toEntity(CreateNotificationRequest request) {
+    public NotificationEntity toEntity(Long userId, CreateNotificationRequest request) {
         return NotificationEntity
                 .builder()
-                .user(new UserEntity(request.userId()))
+                .user(new UserEntity(userId))
                 .message(request.message())
                 .isRead(false)
                 .build();

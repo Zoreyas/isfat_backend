@@ -8,7 +8,7 @@ import java.util.List;
 public interface NotificationService {
     List<NotificationResponse> getUserNotifications(Long userId, boolean unreadOnly);
 
-    Long createNotification(CreateNotificationRequest request);
+    Long createNotification(Long userId, CreateNotificationRequest request);
 
     void markAsRead(Long id);
 

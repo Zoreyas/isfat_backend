@@ -24,11 +24,11 @@ public class NotificationController {
         return ResponseEntity.ok(notificationService.getUserNotifications(userId, unreadOnly));
     }
 
-    @PostMapping
-    public ResponseEntity<IdResponse> createNotification(
+    @PostMapping("/{userId}")
+    public ResponseEntity<IdResponse> createNotification(@PathVariable Long userId,
             @RequestBody CreateNotificationRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new IdResponse(notificationService.createNotification(request)));
+                .body(new IdResponse(notificationService.createNotification(userId, request)));
     }
 
     // Пометить как прочитанное
