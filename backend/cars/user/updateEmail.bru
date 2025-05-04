@@ -5,21 +5,21 @@ meta {
 }
 
 patch {
-  url: {{path}}/users/{{id}}/email
+  url: {{path}}/users/:id/email
   body: json
   auth: bearer
 }
 
+params:path {
+  id: 3
+}
+
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdfdGVzdCIsImlhdCI6MTc0MzA4MzQzMSwiZXhwIjoxODk4NjAzNDMxfQ.6ygiLVNYO9F0qRB0Vr_cZ5Uzmx37DXuGsycyO37unSQ
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0X3VzZXIxIiwiaWF0IjoxNzQ2Mzc2NjAwLCJleHAiOjE5MDE4OTY2MDB9.001xmQb0vOy77aificL9e4xMBrfVqLJiSNm_WfiNLUs
 }
 
 body:json {
   {
     "email": "new_test@mail.com"
   }
-}
-
-vars:pre-request {
-  id: 17
 }

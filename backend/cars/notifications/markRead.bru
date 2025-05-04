@@ -4,9 +4,9 @@ meta {
   seq: 3
 }
 
-post {
-  url: {{path}}/users/notifications/:user
-  body: json
+patch {
+  url: {{path}}/users/notifications/:user/read
+  body: none
   auth: inherit
 }
 

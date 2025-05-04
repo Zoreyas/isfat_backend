@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void updateEmail(Long id, UpdateUserEmailRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
@@ -97,6 +98,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void updatePassword(Long id, UpdateUserPasswordRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
@@ -112,6 +114,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void updateLogin(Long id, UpdateUserLoginRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
