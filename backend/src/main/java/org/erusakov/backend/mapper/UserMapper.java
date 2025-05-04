@@ -10,8 +10,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import java.util.stream.Collectors;
-
 @Component
 @RequiredArgsConstructor
 public class UserMapper {
@@ -25,11 +23,6 @@ public class UserMapper {
                 .name(createUserRequest.name())
                 .surname(createUserRequest.surname())
                 .password(createUserRequest.password())
-                .roles(createUserRequest
-                        .roles()
-                        .stream()
-                        .map(roleRequest -> new RoleEntity(roleRequest.name())).collect(Collectors
-                                .toList()))
                 .build();
     }
 

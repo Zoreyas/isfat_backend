@@ -18,6 +18,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -34,6 +36,14 @@ public class UserServiceImpl implements UserService {
         String unencryptedPassword = userEntity.getPassword();
         String encryptedPassword = passwordEncoder.encode(unencryptedPassword);
         userEntity.setPassword(encryptedPassword);
+        userEntity.setRoles(
+                createUser.roles()
+                        .stream()
+                        .map(roleRequest -> roleRepository.findByAuthority(roleRequest.name()))
+                        .filter(Optional::isPresent)
+                        .map(Optional::get)
+                        .toList()
+        );
 
         return userRepository.save(userEntity).getId();
     }
@@ -90,7 +100,7 @@ public class UserServiceImpl implements UserService {
     public void updatePassword(Long id, UpdateUserPasswordRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
-        if (!user.getUsername().equals(login) || user.hasRole("ADMIN")){
+        if (!user.getUsername().equals(login) || user.hasRole("ADMIN")) {
             throw new AccessDeniedException("You can only change your own email");
         }
         if (passwordEncoder.matches(request.password(), user.getPassword())) {
