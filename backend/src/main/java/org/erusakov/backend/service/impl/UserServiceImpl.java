@@ -89,7 +89,8 @@ public class UserServiceImpl implements UserService {
     public void updateEmail(Long id, UpdateUserEmailRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
-        if (!user.getUsername().equals(login) && !user.hasRole("ADMIN")) {
+        if (!user.getUsername().equals(login)
+                && !getByUsernameOrThrow(login).hasRole("ADMIN")) {
             throw new AccessDeniedException("You can only change your own email");
         }
 
@@ -102,8 +103,9 @@ public class UserServiceImpl implements UserService {
     public void updatePassword(Long id, UpdateUserPasswordRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
-        if (!user.getUsername().equals(login) && !user.hasRole("ADMIN")) {
-            throw new AccessDeniedException("You can only change your own email");
+        if (!user.getUsername().equals(login)
+                && !getByUsernameOrThrow(login).hasRole("ADMIN")) {
+            throw new AccessDeniedException("You can only change your own password");
         }
         if (passwordEncoder.matches(request.password(), user.getPassword())) {
             throw new AccessDeniedException("You cannot use your old password");
@@ -118,8 +120,9 @@ public class UserServiceImpl implements UserService {
     public void updateLogin(Long id, UpdateUserLoginRequest request, String login) {
         UserEntity user = getByIdOrThrow(id);
 
-        if (!user.getUsername().equals(login) && !user.hasRole("ADMIN")) {
-            throw new AccessDeniedException("You can only change your own login");
+        if (!user.getUsername().equals(login)
+                && !getByUsernameOrThrow(login).hasRole("ADMIN")) {
+            throw new AccessDeniedException("You can only change your own password");
         }
 
         user.setUsername(request.username());
@@ -156,6 +159,11 @@ public class UserServiceImpl implements UserService {
 
     private RoleEntity getRoleByIdOrThrow(Long roleId) {
         return roleRepository.findById(roleId)
+                .orElseThrow(UserNotFoundException::new);
+    }
+
+    private UserEntity getByUsernameOrThrow(String username) {
+        return userRepository.findByUsername(username)
                 .orElseThrow(UserNotFoundException::new);
     }
 
