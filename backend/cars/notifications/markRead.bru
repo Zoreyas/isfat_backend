@@ -1,0 +1,21 @@
+meta {
+  name: markRead
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{path}}/users/notifications/:user
+  body: json
+  auth: inherit
+}
+
+params:path {
+  user: 2
+}
+
+body:json {
+  {
+    "message": "Account created on 04.05.2025"
+  }
+}
