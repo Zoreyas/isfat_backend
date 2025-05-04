@@ -28,4 +28,5 @@ public class DriverController {
         driverService.removeDriverRole(userId);
         return ResponseEntity.noContent().build();
     }
+
 }

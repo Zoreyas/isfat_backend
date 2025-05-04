@@ -42,4 +42,5 @@ public class NotificationController {
     public void deleteNotification(@PathVariable Long id) {
         notificationService.deleteNotification(id);
     }
+
 }

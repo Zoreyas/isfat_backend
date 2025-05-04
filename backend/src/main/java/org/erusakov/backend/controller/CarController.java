@@ -59,16 +59,19 @@ public class CarController {
         carService.update(id, request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/repairs/{id}")
     public void findRepairsById(@PathVariable Long id, @RequestBody RepairRequest request) {
         carService.updateRepairs(id, request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/drivers/{id}")
     public void findDriversById(@PathVariable Long id, @RequestBody DriverHistoryRequest request) {
         carService.updateDrivers(id, request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/notes/{id}")
     public void findNotesById(@PathVariable Long id, @RequestBody CarNoteRequest request) {
         carService.updateNotes(id, request);
@@ -79,7 +82,6 @@ public class CarController {
     public void deleteCar(@PathVariable Long id) {
         carService.delete(id);
     }
-
 
 }
 
